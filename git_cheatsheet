@@ -1,0 +1,140 @@
+Git installion
+============================================================
+#yum install git -y
+#git --version
+============================================================
+
+
+To make a directory- Local Git Repository
+============================================================
+#cd dir
+#git init
+
+This will initialise git repository, .git
+============================================================
+
+
+
+============================================================
+You can create any file as you like and code them.
+After creating the file, Add the file to track its activity
+
+#git add file_name      ---------> Single file
+or
+#git add .              ---------> All file in the the dir
+
+Check the status of files that are not yet comitted
+#git status
+
+
+To commit files
+#git commit -m "Type any message"
+
+To check commit log or history
+#git log
+#git log --oneline
+
+To check commit details of a particular commit
+#git show c7859355     ------->(c7859355 is Commit ID)
+============================================================
+
+
+
+SSH Key gerenation for GitHub
+
+============================================================
+#ssh-keygen
+#eval "$(ssh-agent -s)"
+#ssh-add ~/.ssh/github.key  ---->path of the private.key
+
+
+Copy public key and copy it github SSH key section
+
+#cat /root/.ssh/github.key.pub 
+
+Go to giothub account Github/Settings/SSHKey
+=============================================================
+
+
+Pushing code to Github
+
+=============================================================
+#git remote add origin git@github.com:git_username/devops.git
+#git push -u origin master
+=============================================================
+
+
+Pulling code from Github
+
+=============================================================
+#git remote add origin git@github.com:git_username/devops.git
+#git pull origin master
+=============================================================
+
+
+Adding Branches
+============================================================
+#git branch branch_name
+
+To change branch
+
+#git checkout branch_name
+============================================================
+
+
+
+Merging Branches
+
+==================================================================
+Checkout to the master brach. 
+Or the brach to which the other one is to be merged
+
+#git checkout master
+#git merge branch_name
+
+
+Incase of conficts , file needs to be add & commit after resolution
+vim conflict_file
+Resolve chages, then
+
+#git add .
+#git commit -m "whatever_message"
+==================================================================
+
+
+Stashing
+==================================================================
+Used to temperorly clear workspace for another work
+
+#git stash
+This will stash only the data that is not commited yet.
+Data that is not added to commit will aslo not be stashed.
+
+#git stash list
+stash@{0}: WIP on master: ca1c322 conflict\Day2.11  ---> output
+stash@{1}: WIP on master: ca1c322 conflict\Day2.11
+
+There will be stash 0,1,2 etc. 0 will be the latest stash
+
+To restore to a prevous stash
+#git stash apply stash@{0}
+
+
+To clear all the stash
+#git stash clear
+
+=================================================================
+
+
+Reset
+=================================================================
+Used to remove an added file from staging area to workspace
+
+#git reset file_name
+OR
+#git reset .
+
+To reset or delete a file from workspace and staging area
+#git reset --hard
+=================================================================
+
